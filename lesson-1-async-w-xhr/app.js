@@ -28,7 +28,7 @@
 	function addImage() {
 	let htmlContent;
 	const data = JSON.parse(this.responseText);
-	// if I can translate JSON response from unsplash to a Javascript object, and if I can get the first image
+	// if I can translate JSON response from Pixabay to a Javascript object, and if I can get the first image
 	if(data.hits && data.hits[0]) {
 		const firstImage = data.hits[0];
 		htmlContent = `<figure>

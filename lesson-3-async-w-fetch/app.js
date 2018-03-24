@@ -19,15 +19,15 @@
      	const firstImage = data.hits[0];
      	
      		if(firstImage) {
-     			htmlContent = `<picture>
-     			<img src="${firstImage.largeImageURL}" alt="${firstImage.tags}">
+     			htmlContent = `<figure>
+     			<img src="${firstImage.webformatURL}" alt="${firstImage.tags}">
      			<figcaption>${firstImage.tags}</figcaption>
-     			</picture>`;
+     			</figure>`;
      			responseContainer.insertAdjacentHTML("afterbegin", htmlContent);
      		} 
      		else {
-     		htmlContent = `<h3>Sorry guys...</h3>
-     		<p>We didn't find your ${part} about ${searchedForText}</p>`;
+     		htmlContent = `<h2>Sorry guys...</h2>
+     		<p class="error-no-image">We didn't find your ${part} about ${searchedForText}</p>`;
      		responseContainer.insertAdjacentHTML("afterbegin", htmlContent);
      		}
      	}   
@@ -42,16 +42,16 @@
      	
      		if(articles.length > 1) {
      			articles.map(article => {
-     				htmlContent = `<li>
-     				<h3> <a href="${article.web_url}">${article.headline.main} </a> </h3>
+     				htmlContent = `<li class="article">
+     				<h2> <a href="${article.web_url}">${article.headline.main} </a> </h2>
      				<p> ${article.snippet} </p>
      				</li>`;
      				responseContainer.insertAdjacentHTML("beforeend", `<ul>${htmlContent}</ul>`);
      			});
      		}
      		else {
-     			htmlContent = `<h3>Sorry guys...</h3>
-     			<p>We didn't find your ${part} about ${searchedForText}</p>`;
+     			htmlContent = `<h2>Sorry guys...</h2>
+     			<p class="error-no-image">We didn't find your ${part} about ${searchedForText}</p>`;
      			responseContainer.insertAdjacentHTML("beforeend", htmlContent);
      		}
      	}
@@ -62,8 +62,8 @@
        	*/
         function sendError(err, part) {
         	console.log(err);
-        	let htmlContent = `<h3>Sorry guys...</h3>
-     		<p>We didn't find your ${part} about ${searchedForText}</p>`;
+        	let htmlContent = `<h2>Sorry guys...</h2>
+     		<p class="error-no-articles">We didn't find your ${part} about ${searchedForText}</p>`;
         }
         
         
@@ -93,6 +93,5 @@
 		.then(addArticles)
 		.catch(err => sendError(err, 'articles')
 		);
-
     });
 })();

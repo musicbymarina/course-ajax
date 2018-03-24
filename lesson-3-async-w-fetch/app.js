@@ -27,7 +27,7 @@
      		} 
      		else {
      		htmlContent = `<h2>Sorry guys...</h2>
-     		<p class="error-no-image">We didn't find your ${part} about ${searchedForText}</p>`;
+     		<p class="error-no-image">We didn't find your image about ${searchedForText}</p>`;
      		responseContainer.insertAdjacentHTML("afterbegin", htmlContent);
      		}
      	}   
@@ -51,7 +51,7 @@
      		}
      		else {
      			htmlContent = `<h2>Sorry guys...</h2>
-     			<p class="error-no-image">We didn't find your ${part} about ${searchedForText}</p>`;
+     			<p class="error-no-image">We didn't find your articles about ${searchedForText}</p>`;
      			responseContainer.insertAdjacentHTML("beforeend", htmlContent);
      		}
      	}
@@ -93,5 +93,6 @@
 		.then(addArticles)
 		.catch(err => sendError(err, 'articles')
 		);
+
     });
 })();

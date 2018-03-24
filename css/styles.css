@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background: #fafbfc;
+    background: #2e3d49;
     font-family: OpenSans, sans-serif;
     margin: 0;
     padding: 0;
@@ -17,13 +17,18 @@ body {
 
 .site-container {
     margin: auto;
-    max-width: 1200px;
-    width: 80%;
+    /*max-width: 1200px;*/
+    width: 100%;
 }
 
 .masthead {
     background: #2e3d49;
     padding: 2em 0;
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .masthead h1 {
@@ -32,12 +37,17 @@ body {
     margin: 0;
     margin-bottom: 0.2em;
     text-align: center;
+    
+    width: 100%;
 }
 
 /*** Search Form ***/
 #search-form {
     display: flex;
     padding: 1em 0;
+    
+    width: 80%;
+    margin: 0 auto;
 }
 
 #search-keyword {
@@ -66,20 +76,28 @@ body {
 /*** Response Container ***/
 #response-container {
     margin-top: 2em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 /*** Image Styline ***/
 figure {
-    margin: 0;
-    margin-bottom: 2em;
+    /*margin: 0;
+    margin-bottom: 2em;*/
     position: relative;
     text-align: center;
+    
+    width: 100%;
+    margin: 0 auto;
 }
 
 figure img {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     max-width: 100%;
-    width: 100%;
+    
+    width: 80%;
 }
 
 figcaption {
@@ -88,14 +106,19 @@ figcaption {
     color: #ffffff;
     font-size: 14px;
     padding: 0.8em 1.4em;
-    position: absolute;
-    width: 100%;
+    /*position: absolute;*/
+    
+    width: 80%;
+    margin: 0 auto;
 }
 
 /*** Article Styling ***/
 ul {
     list-style: none;
     padding: 0;
+    
+    width: 80%;
+    margin: 20px auto;
 }
 
 .article {
@@ -160,4 +183,29 @@ ul {
     position: absolute;
     width: 1px;
     white-space: nowrap; /* 1 */
+}
+
+
+@media screen and (max-width: 600px) {
+    #search-form {
+    width: 100%;
+    flex-wrap: wrap;
+    }
+    
+    #search-keyword {
+        margin: 0 10px;
+        width:80%;
+    }
+    #submit-btn {
+        margin: 20px 10px;
+    }
+    figure img {    
+    width: 100%;
+    }
+    figcaption {
+    width: 100%;
+    }
+    ul {
+    width: 100%;
+    }   
 }

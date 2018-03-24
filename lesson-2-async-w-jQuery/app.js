@@ -29,8 +29,8 @@
 				responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
 			}
 			else {
-				const noImages = `<h3>Sorry guys...</h3>
-				<p>No images about ${searchedForText}, try again...`;
+				const noImages = `<h2>Sorry guys...</h2>
+				<p class="error-no-image">No images about ${searchedForText}, try again...`;
 				responseContainer.insertAdjacentHTML('beforeend', noImages);
 			}
 		};
@@ -59,8 +59,8 @@
 			if(nyArticles && nyArticles.docs && nyArticles.docs.length > 1) {
 				nyArticles.docs.map(function(article) {
 					const htmlContent = `
-					<li>
-					<h3><a href='${article.web_url}'>${article.headline.main}</a></h3>
+					<li class="article">
+					<h2><a href='${article.web_url}'>${article.headline.main}</a></h2>
 					<p>${article.snippet}</p>
 					</li>`;
 					console.log(article.web_url);
@@ -71,8 +71,8 @@
 				});
 				
 			} else {
-				const noArticles = `<h3>Sorry guys...</h3>
-				<p>No articles about ${searchedForText}, try again...`;
+				const noArticles = `<h2>Sorry guys...</h2>
+				<p class="error-no-articles">No articles about ${searchedForText}, try again...`;
 				responseContainer.insertAdjacentHTML('beforeend', noArticles);
 			}
 		}
@@ -94,8 +94,8 @@
         *	@param part - Part of the text content I need to change (images OR articles)
         */
         function requestError(err, part) {
-        	const text = `<h3>Sorry guys...</h3>
-			<p>No ${part} about ${searchedForText}, try again...</p>`;
+        	const text = `<h2>Sorry guys...</h2>
+			<p class="error-no-image">No ${part} about ${searchedForText}, try again...</p>`;
 			console.log(err);
 			responseContainer.insertAdjacentHTML("afterbegin", text);
         } 
